@@ -1,0 +1,8 @@
+{
+  "name": "CallSetu",
+  "short_name": "CallSetu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07152f",
+  "theme_color": "#07152f"
+}

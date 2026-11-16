@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07152f"><title>CallSetu</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header><div class="logo">☎</div><strong>CallSetu</strong><span id="connection">Offline</span></header>
+<main>
+<section id="auth" class="panel">
+<h1>Welcome to CallSetu</h1><p>Sign in with your 10-digit CallSetu ID.</p>
+<label>CallSetu ID<input id="userId" inputmode="numeric" maxlength="10" placeholder="10-digit ID"></label>
+<label>Password<input id="password" type="password" minlength="8" maxlength="128" placeholder="Password"></label>
+<div class="actions"><button id="login">Login</button><button class="secondary" id="register">Create account</button></div>
+<p id="authError" class="error"></p>
+</section>
+<section id="app" hidden>
+<nav><button data-tab="messages">Messages</button><button data-tab="contacts">Contacts</button><button data-tab="dial">Dial Pad</button><button data-tab="account">My Account</button></nav>
+<section id="messages" class="panel"><h2>Messages</h2><p class="muted">Messages are sent as ciphertext. End-to-end key management and verification must be completed before production use.</p><label>Recipient ID<input id="recipient" maxlength="10" inputmode="numeric"></label><label>Message<input id="messageText" maxlength="4000"></label><button id="sendMessage">Send encrypted payload</button><div id="messageList"></div></section>
+<section id="contacts" class="panel" hidden><h2>Contacts</h2><label>CallSetu ID<input id="contactId" maxlength="10" inputmode="numeric"></label><label>Display name<input id="contactLabel" maxlength="60"></label><button id="addContact">Add contact</button><ul id="contactList"></ul></section>
+<section id="dial" class="panel" hidden><h2>Dial Pad</h2><input id="dialNumber" maxlength="10" inputmode="numeric" placeholder="10-digit CallSetu ID"><p class="muted">Calling UI is a placeholder until WebRTC signalling, TURN configuration, and native call integration are implemented and tested.</p><button disabled>Start call (not yet available)</button></section>
+<section id="account" class="panel" hidden><h2>My Account</h2><p id="accountId"></p><button id="logout" class="secondary">Logout</button></section>
+</section>
+</main>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
